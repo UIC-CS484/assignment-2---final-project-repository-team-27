@@ -45,7 +45,7 @@ app.post('/signin', (req, res) => {
 })
 
 app.post('/register', (req, res) => {
-    const {name, email, phone, password} = req.body;
+    const { name, email, phone, password } = req.body;
     database.users.push({
         id: 103,
         name: name,
@@ -55,7 +55,18 @@ app.post('/register', (req, res) => {
         joined: new Date()
     });
     console.log(database.users);
-    res.status(200).json(database.users[database.users.length-1]);
+    res.status(200).json(database.users[database.users.length - 1]);
+})
+
+app.get('/profile/:id', (req, res) => {
+    const userFound = database.users.some((user, i) => {
+        userFoundAtIndex = i;
+        return user.id === parseInt(req.params.id)
+    })
+    if (userFound)
+        res.status(200).send(database.users[userFoundAtIndex]);
+    else
+        res.status(400).send('User not found');
 })
 
 app.listen(3000, () => {
