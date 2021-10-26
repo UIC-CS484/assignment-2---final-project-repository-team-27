@@ -1,0 +1,86 @@
+.signin{
+    background-color: #fff;
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#signin-newuserimage{
+    width: 316px;
+    height: auto;
+}
+.signin-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2{
+    margin-bottom: 50px;
+    background: linear-gradient(to right, #28ACAF, #47D534);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+input{
+    color: #666666;
+    height: 50px;
+    width: 200px;
+    font-size: 15px;
+    line-height: 1.5;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+    outline: none;
+	border: none;
+    margin-bottom: 20px;
+}
+input[name='email']{
+    background: #e6e6e6 url('../../Images/envelope-solid.svg') no-repeat scroll 25px 15px;
+    background-size: 20px 20px;
+}
+input[name='password']{
+    background: #e6e6e6 url('../../Images/lock-solid.svg') no-repeat scroll 25px 15px;
+    background-size: 20px 20px;
+}
+button:hover {
+	cursor: pointer;
+    background: #333333;
+}
+button{
+    outline: none;
+	border: none;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: #57b846;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.signin-create-account{
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+.signin-create-account:hover{
+    filter: invert(60%) sepia(17%) saturate(1534%) hue-rotate(65deg) brightness(101%) contrast(86%);
+}
+p{
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+#signin-arrow-icon{
+    width: 20px;
+    height: 19px;
+    align-self: flex-end;
+    margin-left: 5px;
+}
+#forgot-password:hover{
+    color: #57b846;
+    cursor: pointer;
+}
