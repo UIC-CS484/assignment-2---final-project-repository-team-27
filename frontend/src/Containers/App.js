@@ -9,12 +9,31 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            route: 'signin'
+            route: 'signin',
+            user: {
+                id: 0,
+                name: '',
+                phone: 0,
+                email: '',
+                joined: ''
+            }
         }
     }
 
     onRouteChange = (route) => {
         this.setState({ route: route });
+    }
+
+    loadUser = (data) => {
+        this.setState({
+            user: {
+                id: data.id,
+                name: data.name,
+                phone: data.phone,
+                email: data.email,
+                joined: data.joined
+            }
+        })
     }
 
     render() {
@@ -23,10 +42,15 @@ class App extends React.Component {
             <div className="App">
                 {
                     route === 'home'
-                        ? <Home onRouteChange={this.onRouteChange} />
+                        ? <Home id={this.state.user.id} 
+                        name={this.state.user.name} 
+                        phone={this.state.user.phone}
+                        email={this.state.user.email}
+                        joined={this.state.user.joined}
+                        onRouteChange={this.onRouteChange} />
                         : (route === 'signin'
-                            ? <Signin onRouteChange={this.onRouteChange} />
-                            : <Signup onRouteChange={this.onRouteChange} />
+                            ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+                            : <Signup loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
                         )
                 }
             </div>

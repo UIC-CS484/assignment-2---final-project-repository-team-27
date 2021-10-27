@@ -12,7 +12,7 @@
     width: 316px;
     height: auto;
 }
-.signup-form-1{
+.signup-form-column{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,19 +32,21 @@ input{
 	border: none;
     margin-bottom: 20px;
 }
-input[name='email']{
+input[name='registerEmail']{
     background: #e6e6e6 url('../../Images/envelope-solid.svg') no-repeat scroll 25px 15px;
     background-size: 20px 20px;
+    margin-right: 10px;
 }
-input[name='password']{
+input[name='registerPassword']{
     background: #e6e6e6 url('../../Images/lock-solid.svg') no-repeat scroll 25px 15px;
     background-size: 20px 20px;
 }
-input[name='name']{
+input[name='registerName']{
     background: #e6e6e6 url('../../Images/user-solid.svg') no-repeat scroll 25px 15px;
     background-size: 20px 20px;
+    margin-right: 10px;
 }
-input[name='mobile']{
+input[name='registerMobile']{
     background: #e6e6e6 url('../../Images/phone-solid.svg') no-repeat scroll 25px 15px;
     background-size: 20px 20px;
 }
@@ -52,13 +54,13 @@ button:hover {
 	cursor: pointer;
     background: #333333;
 }
-button{
+button[name='registerSubmit']{
     outline: none;
 	border: none;
     font-size: 15px;
     line-height: 1.5;
     color: #fff;
-    width: 100%;
+    width: 60%;
     height: 50px;
     border-radius: 25px;
     background: #57b846;
@@ -66,10 +68,10 @@ button{
     font-weight: bold;
     margin-bottom: 30px;
 }
-.sign-up-form-2{
+.signup-form-row{
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
 }
 p{
