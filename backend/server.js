@@ -1,5 +1,7 @@
 const express = require('express');
-var bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
+const cors = require('cors');
+
 const app = express();
 
 const database = {
@@ -32,6 +34,7 @@ const database = {
 }
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.status(200).json(database.users);
@@ -67,7 +70,6 @@ app.post('/register', (req, res) => {
                 password: hash,
                 joined: new Date()
             });
-            console.log(database.users);
             res.status(200).json(database.users[database.users.length - 1]);
         }
         else {
