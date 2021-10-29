@@ -22,4 +22,5 @@ The frontend has been built using React.js.
 ### `npm start` starts the react scripts
 
 cd into the frontend folder and type 'npm start'. This starts the react scripts and runs the app in development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The server runs on port 3000. Since react defaults to port 3000, it will ask if it is okay to run in a different port, please say yes or type 'y' when prompted in the terminal. This will run it on port 3001.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
