@@ -42,12 +42,7 @@ class App extends React.Component {
             <div className="App">
                 {
                     route === 'home'
-                        ? <Home id={this.state.user.id} 
-                        name={this.state.user.name} 
-                        phone={this.state.user.phone}
-                        email={this.state.user.email}
-                        joined={this.state.user.joined}
-                        onRouteChange={this.onRouteChange} />
+                        ? <Home currentUser={this.state.user} onRouteChange={this.onRouteChange} />
                         : (route === 'signin'
                             ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
                             : <Signup loadUser={this.loadUser} onRouteChange={this.onRouteChange} />

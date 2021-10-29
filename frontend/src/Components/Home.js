@@ -6,14 +6,14 @@ class Home extends React.Component {
 
     constructor(props) {
         super(props);
-        const { id, name, phone, email, joined } = this.props;
+        const { currentUser } = this.props;
         this.state = {
             userDetails: {
-                userId: id,
-                userName: name,
-                userPhone: phone,
-                userEmail: email,
-                userJoined: joined
+                userId: currentUser.id,
+                userName: currentUser.name,
+                userPhone: currentUser.phone,
+                userEmail: currentUser.email,
+                userJoined: currentUser.joined
             }
         }
         console.log(this.state.userDetails);
