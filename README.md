@@ -18,6 +18,7 @@ Keep this open in one terminal window.
 ### `npm test` starts the test scripts
 
 cd into the backend folder and type 'npm test'.
+There is a file called validation.test.js. This validates the inputs entered by the user in the sign up form.
 
 ## Frontend
 
