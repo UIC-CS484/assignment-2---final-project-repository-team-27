@@ -55,8 +55,10 @@ class Signup extends React.Component {
                         this.props.loadUser(data);
                         this.props.onRouteChange('home');
                     }
-                    else if (typeof data === 'string')
-                        console.log("Register fail")
+                    else if (typeof data === 'string') {
+                        console.log(data);
+                        console.log("Register fail");
+                    }
                     else
                         console.log('Error signing up')
                 })

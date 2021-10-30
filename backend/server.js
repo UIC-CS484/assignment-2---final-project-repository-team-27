@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
+const { passwordCheck, emailCheck, mobileNumberCheck } = require('./validation');
 
 const app = express();
 
@@ -33,7 +34,10 @@ const database = {
     ]
 }
 
+
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -52,6 +56,8 @@ app.post('/signin', (request, response) => {
                 response.status(200).json(database.users[userFoundAtIndex]);
             else
                 response.status(400).json('Incorrect username/password');
+            if (err)
+                response.status(400).json('Something went wrong with the hashing function');
         });
     }
     else
@@ -60,25 +66,39 @@ app.post('/signin', (request, response) => {
 
 app.post('/register', (req, res) => {
     const { name, email, phone, password } = req.body;
-    bcrypt.hash(password, 8, (err, hash) => {
-        if (!err) {
-            database.users.push({
-                id: 103,
-                name: name,
-                phone: phone,
-                email: email,
-                password: hash,
-                joined: new Date()
-            });
-            res.status(200).json(database.users[database.users.length - 1]);
-        }
-        else {
-            res.status(400).json('Could not generate hash for password');
-        }
-    });
+    responseString = '';
+
+    if (passwordCheck(password).length === 0 && emailCheck(email).length === 0 && mobileNumberCheck(phone).length === 0) {
+        bcrypt.hash(password, 8, (err, hash) => {
+            if (!err) {
+                database.users.push({
+                    id: 103,
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    password: hash,
+                    joined: new Date()
+                });
+                res.status(200).json(database.users[database.users.length - 1]);
+            }
+            else {
+                res.status(400).json('Could not generate hash for password');
+            }
+        });
+    }
+    else {
+        if (passwordCheck(password).length !== 0)
+            responseString += `Password did not meet these requirements: ${passwordCheck(password).join(' ')} \n`;
+        if (emailCheck(email).length !== 0)
+            responseString += `Email did not meet these requirements: ${emailCheck(email).join(' ')} \n`;
+        if (mobileNumberCheck(phone).length !== 0)
+            responseString += `Mobile number did not meet these requirements: ${mobileNumberCheck(phone).join(' ')}`;
+
+        res.status(400).json(responseString);
+    }
 })
 
-app.get('/profile/:id', (req, res) => {
+/*app.get('/profile/:id', (req, res) => {
     const userFound = database.users.some((user, i) => {
         userFoundAtIndex = i;
         return user.id === parseInt(req.params.id)
@@ -87,7 +107,7 @@ app.get('/profile/:id', (req, res) => {
         res.status(200).json(database.users[userFoundAtIndex]);
     else
         res.status(400).json('User not found');
-})
+})*/
 
 app.listen(3000, () => {
     console.log('The server is now running on port 3000, and is ready to listen and respond to requests');
