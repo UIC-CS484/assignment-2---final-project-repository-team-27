@@ -1,13 +1,10 @@
-# Assignment 2 - still in progress
+# Assignment 2
 
-The frontend and backend have been implemented completely. However, I am yet to use/configure passport.js.
-
-Note to TA: I am doing my project alone, so it will be great if you can grade my project after grading all team projects.
-Thank you so much for your understanding.
+The frontend and backend have been implemented completely. The application satisfies all requirements.
 
 ## Backend
 
-The server has been built using node.js and express.js. It has end points right now primarily for signin, signup.
+The server has been built using node.js and express.js and passport.js. It has end points right now primarily for signin, signup.
 
 ### `npm start` starts the server
 
