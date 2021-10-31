@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+require('dotenv').config()
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const session = require('express-session');
@@ -18,7 +19,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(session({
-    secret: 'secretcode',
+    secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true
 }))
