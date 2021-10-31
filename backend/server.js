@@ -1,44 +1,29 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');
-const cors = require('cors');
-const { passwordCheck, emailCheck, mobileNumberCheck } = require('./validation');
-
 const app = express();
 
-const database = {
-    users: [
-        {
-            id: 100,
-            name: 'alan',
-            phone: 872184047,
-            email: 'alanharper@gmail.com',
-            password: '$2a$08$V9j0xZsn156HE.Qd2DMySuQkkuCJNP1daUX8iM0cXcmwmXp0Mk/k.', //stupefy
-            joined: new Date()
-        },
-        {
-            id: 101,
-            name: 'charlie',
-            phone: 872184048,
-            email: 'charlieharper@gmail.com',
-            password: '$2a$08$Wyfha1sSEcz1Uhy2rTL2Y.tsH/Cgxu8s1PdpaD0DkqtZw6LMoLbky',    //marco
-            joined: new Date()
-        },
-        {
-            id: 102,
-            name: 'jake',
-            phone: 872184049,
-            email: 'jakeharper@gmail.com',
-            password: '$2a$08$4wFjg6rkLCbpOqUyOczGUu4mDPW7tITgIqrNIpoU9OwRg1y.DdGNm',    //polo
-            joined: new Date()
-        }
-    ]
-}
+const bcrypt = require('bcryptjs');
+const cors = require('cors');
+const session = require('express-session');
 
+const passport = require('passport');
+const initializeConfig = require('./passport-config');
 
+const database = require('./mock-database');
+const { passwordCheck, emailCheck, mobileNumberCheck } = require('./validation');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3001',
+    credentials: true
+}));
+app.use(session({
+    secret: 'secretcode',
+    resave: true,
+    saveUninitialized: true
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/', (req, res) => {
     res.status(200).json(database.users);
@@ -52,8 +37,10 @@ app.post('/signin', (request, response) => {
     })
     if (emailFound) {
         bcrypt.compare(password, database.users[userFoundAtIndex].password, (err, res) => {
-            if (res)
+            if (res) {
+                initializeConfig(passport, database.users[userFoundAtIndex].email, database.users[userFoundAtIndex].password)
                 response.status(200).json(database.users[userFoundAtIndex]);
+            }
             else
                 response.status(400).json('Incorrect username/password');
             if (err)
@@ -97,17 +84,6 @@ app.post('/register', (req, res) => {
         res.status(400).json(responseString);
     }
 })
-
-/*app.get('/profile/:id', (req, res) => {
-    const userFound = database.users.some((user, i) => {
-        userFoundAtIndex = i;
-        return user.id === parseInt(req.params.id)
-    })
-    if (userFound)
-        res.status(200).json(database.users[userFoundAtIndex]);
-    else
-        res.status(400).json('User not found');
-})*/
 
 app.listen(3000, () => {
     console.log('The server is now running on port 3000, and is ready to listen and respond to requests');
