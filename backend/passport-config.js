@@ -9,7 +9,7 @@ const initializeConfig = (passport, email, passwordHash) => {
         usernameField: 'loginEmail',
         passwordField: 'loginPassword'
     }, (username, password, done) => {
-        console.log(username, password);
+        console.log(username);
         if (username === email) {
             bcrypt.compare(password, passwordHash, (err, res) => {
                 if (res)
