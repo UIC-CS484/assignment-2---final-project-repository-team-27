@@ -40,6 +40,12 @@ app.post('/signin', (request, response) => {
         bcrypt.compare(password, database.users[userFoundAtIndex].password, (err, res) => {
             if (res) {
                 initializeConfig(passport, database.users[userFoundAtIndex].email, database.users[userFoundAtIndex].password)
+
+                passport.authenticate('local'), (req, res) => {
+                        // `req.user` contains the authenticated user.
+                        console.log(req, res);
+                    }
+
                 response.status(200).json(database.users[userFoundAtIndex]);
             }
             else
