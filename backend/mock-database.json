@@ -1,0 +1,52 @@
+{
+    "users": [
+        {
+            "id": 100,
+            "name": "alan",
+            "phone": 872184047,
+            "email": "alan@gmail.com",
+            "password": "$2a$08$V9j0xZsn156HE.Qd2DMySuQkkuCJNP1daUX8iM0cXcmwmXp0Mk/k.",
+            "joined": "2021-10-31T20:28:33.026Z"
+        },
+        {
+            "id": 101,
+            "name": "charlie",
+            "phone": 872184048,
+            "email": "charlie@gmail.com",
+            "password": "$2a$08$Wyfha1sSEcz1Uhy2rTL2Y.tsH/Cgxu8s1PdpaD0DkqtZw6LMoLbky",
+            "joined": "2021-10-31T20:28:33.026Z"
+        },
+        {
+            "id": 102,
+            "name": "jake",
+            "phone": 872184049,
+            "email": "jake@gmail.com",
+            "password": "$2a$08$4wFjg6rkLCbpOqUyOczGUu4mDPW7tITgIqrNIpoU9OwRg1y.DdGNm",
+            "joined": "2021-10-31T20:28:33.026Z"
+        },
+        {
+            "id": 103,
+            "name": "walden",
+            "phone": "8722184050",
+            "email": "walden@gmail.com",
+            "password": "$2a$08$uCHM21lTt7ywHHMwbP4RC.Q/2IKSuDZJSrUBRwc6vqXijHvqvqFDi",
+            "joined": "2021-10-31T21:16:10.923Z"
+        },
+        {
+            "id": 104,
+            "name": "shelby",
+            "phone": "8722184051",
+            "email": "shelby@gmail.com",
+            "password": "$2a$08$8R3E/K5TnNFly0xNDK4/Gex4xgHYwNXabXxRBiOd/SCDzY0Lm6hJO",
+            "joined": "2021-10-31T21:23:17.525Z"
+        },
+        {
+            "id": 105,
+            "name": "harvey",
+            "phone": "8722184052",
+            "email": "harvey@gmail.com",
+            "password": "$2a$08$VBKAjiNcZECymU7L7QfV8efwtfFnt2A9zu84srGpWdwRv5S0.bls.",
+            "joined": "2021-10-31T21:30:21.929Z"
+        }
+    ]
+}

@@ -5,12 +5,20 @@ require('dotenv').config()
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const session = require('express-session');
+const fs = require('fs');
 
 const passport = require('passport');
 const initializeConfig = require('./passport-config');
 
-const database = require('./mock-database');
 const { passwordCheck, emailCheck, mobileNumberCheck } = require('./validation');
+
+
+const jsonRead = () => {
+    return JSON.parse(fs.readFileSync('./mock-database.json', 'utf-8'));
+}
+const jsonWrite = (data) => {
+    fs.writeFileSync('./mock-database.json', JSON.stringify(data, null, 4));
+}
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
@@ -27,11 +35,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', (req, res) => {
-    res.status(200).json(database.users);
+    res.status(200).json(jsonRead());
 })
 
 app.post('/signin', (request, response) => {
     const { email, password } = request.body;
+    const database = jsonRead();
     const emailFound = database.users.some((user, i) => {
         userFoundAtIndex = i;
         return user.email === email;
@@ -39,8 +48,8 @@ app.post('/signin', (request, response) => {
     if (emailFound) {
         bcrypt.compare(password, database.users[userFoundAtIndex].password, (err, res) => {
             if (res) {
-                initializeConfig(passport, database.users[userFoundAtIndex].email, database.users[userFoundAtIndex].password)
 
+                initializeConfig(passport, database.users[userFoundAtIndex].email, database.users[userFoundAtIndex].password)
                 passport.authenticate('local'), (req, res) => {
                         // `req.user` contains the authenticated user.
                         console.log(req, res);
@@ -61,12 +70,16 @@ app.post('/signin', (request, response) => {
 app.post('/register', (req, res) => {
     const { name, email, phone, password } = req.body;
     responseString = '';
+    const database = jsonRead();
+
+    let tempId = database.users[database.users.length-1].id;
+    tempId++;
 
     if (passwordCheck(password).length === 0 && emailCheck(email).length === 0 && mobileNumberCheck(phone).length === 0) {
         bcrypt.hash(password, 8, (err, hash) => {
             if (!err) {
                 database.users.push({
-                    id: 103,
+                    id: tempId,
                     name: name,
                     phone: phone,
                     email: email,
@@ -74,6 +87,7 @@ app.post('/register', (req, res) => {
                     joined: new Date()
                 });
                 res.status(200).json(database.users[database.users.length - 1]);
+                jsonWrite(database);
             }
             else {
                 res.status(400).json('Could not generate hash for password');
