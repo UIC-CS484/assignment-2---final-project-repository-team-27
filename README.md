@@ -1,6 +1,6 @@
 # Assignment 2
 
-The frontend and backend have been implemented completely. The application satisfies all requirements.
+The assignment is still in progress. I need time until Monday. I emailed the professor, he told he will forward it to the TA. Thank you so much for undertanding TA. I owe you one.
 
 ## Backend
 

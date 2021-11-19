@@ -4,6 +4,7 @@ const app = express();
 require('dotenv').config()
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const fs = require('fs');
 
@@ -11,7 +12,6 @@ const passport = require('passport');
 const initializeConfig = require('./passport-config');
 
 const { passwordCheck, emailCheck, mobileNumberCheck } = require('./validation');
-
 
 const jsonRead = () => {
     return JSON.parse(fs.readFileSync('./mock-database.json', 'utf-8'));
@@ -23,14 +23,16 @@ const jsonWrite = (data) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.use(cors({
-    origin: 'http://localhost:3001',
+    origin: 'http://localhost:3000',
     credentials: true
 }));
 app.use(session({
     secret: process.env.SECRET,
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 1000*60*60*24*31 }
 }))
+app.use(cookieParser(process.env.SECRET))
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -106,6 +108,6 @@ app.post('/register', (req, res) => {
     }
 })
 
-app.listen(3000, () => {
-    console.log('The server is now running on port 3000, and is ready to listen and respond to requests');
+app.listen(3001, () => {
+    console.log('The server is now running on port 3001, and is ready to listen and respond to requests');
 });

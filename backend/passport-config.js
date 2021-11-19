@@ -4,13 +4,13 @@ const bcrypt = require('bcryptjs');
 const userState={};
 
 const initializeConfig = (passport, email, passwordHash) => {
-
+    console.log("passport function triggered");
     passport.use(new LocalStrategy({
-        usernameField: 'loginEmail',
-        passwordField: 'loginPassword'
+        usernameField: 'email',
+        passwordField: 'password'
     }, (username, password, done) => {
-        console.log(username);
         if (username === email) {
+            console.log(username);
             bcrypt.compare(password, passwordHash, (err, res) => {
                 if (res)
                     return done(null, userState)

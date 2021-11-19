@@ -38,7 +38,7 @@ class Signup extends React.Component {
         }
         else {
 
-            fetch('http://localhost:3000/register', {
+            fetch('http://localhost:3001/register', {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
