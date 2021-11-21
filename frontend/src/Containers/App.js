@@ -4,24 +4,27 @@ import Signin from '../Components/Authentication/Signin';
 import Signup from '../Components/Authentication/Signup';
 import Home from '../Components/Home';
 
+const initialState = {
+    route: 'signin',
+    user: {
+        id: 0,
+        name: '',
+        phone: '',
+        email: '',
+    }
+}
+
 class App extends React.Component {
 
     constructor() {
         super();
-        this.state = {
-            route: 'signin',
-            user: {
-                id: 0,
-                name: '',
-                phone: 0,
-                email: '',
-                joined: ''
-            }
-        }
+        this.state = initialState;
     }
 
     onRouteChange = (route) => {
         this.setState({ route: route });
+        if (route === 'signin')
+            this.setState(initialState);
     }
 
     loadUser = (data) => {
@@ -31,7 +34,6 @@ class App extends React.Component {
                 name: data.name,
                 phone: data.phone,
                 email: data.email,
-                joined: data.joined
             }
         })
     }

@@ -13,7 +13,6 @@ class Home extends React.Component {
                 userName: currentUser.name,
                 userPhone: currentUser.phone,
                 userEmail: currentUser.email,
-                userJoined: currentUser.joined
             }
         }
         console.log(this.state.userDetails);
