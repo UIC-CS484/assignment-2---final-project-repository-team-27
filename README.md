@@ -17,7 +17,7 @@ Keep this open in one terminal window.
 cd into the backend folder and type 'npm test'.
 There is a file called validation.test.js. This validates the inputs entered by the user in the sign up form.
 
-### `erd diagram` represents the database schema implemented <br/>
+### `erd diagram` represents the database schema implemented <br/><br/>
 
 ![erd diagram](./backend/images/erd_diagram.drawio.png)
 
