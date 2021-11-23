@@ -19,6 +19,7 @@ There is a file called validation.test.js. This validates the inputs entered by 
 
 ### `erd diagram` represents the database schema implemented
 
+
 ![erd diagram](./backend/images/erd_diagram.drawio.png)
 
 ## Frontend
