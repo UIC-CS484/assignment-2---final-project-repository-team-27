@@ -49,7 +49,7 @@ class Signin extends React.Component {
                     else
                         console.log('Error signing in');
                 })
-                .catch(error => {
+                .catch( () => {
                     console.log('signin: error communicating with the server');
                 })
         }

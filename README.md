@@ -1,6 +1,6 @@
 # Assignment 2
 
-The assignment is still in progress. I need time until Monday. I emailed the professor, he told he will forward it to the TA. Being in a single member team, it is really hard for me. Thank you so much for undertanding TA. I owe you one.
+The assignment is still in progress. Please grade at the very end. I emailed the professor, he told he will forward it to the TA. Being in a single member team, it is really hard for me. Thank you so much for undertanding TA. I owe you one.
 
 ## Backend
 

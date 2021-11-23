@@ -1,6 +1,5 @@
 import React from 'react';
 import './Home.css';
-import NewUserImage from '../Images/NewUserImage.png';
 
 class Home extends React.Component {
 
@@ -13,16 +12,27 @@ class Home extends React.Component {
                 userName: currentUser.name,
                 userPhone: currentUser.phone,
                 userEmail: currentUser.email,
-            }
+            },
+            cryptoData: {}
         }
         console.log(this.state.userDetails);
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3001/home')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ cryptoData: data});
+            })
+          .catch( () => {
+            console.log('signin: error communicating with the server');
+        })
     }
 
     render() {
         const { onRouteChange } = this.props;
         return (
             <div className='home'>
-                <img src={NewUserImage} alt='New User Icon' id='newuserimage' />
                 <div className='home-form'>
                     <h2>Welcome home, {this.state.userDetails.userName}!</h2>
                     <button type='submit' name='submit' value='login' onClick={() => onRouteChange('signin')}>LOGOUT</button>
