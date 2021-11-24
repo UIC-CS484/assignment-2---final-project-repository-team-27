@@ -69,10 +69,10 @@ class Signup extends React.Component {
         return (
             <div className='signup'>
                 <Tilt className="Tilt" options={{ max: 50, perspective: 700 }} >
-                    <img src={NewUserImage} alt='New User Icon' id='newuserimage' />
+                    <img src={NewUserImage} alt='New User Icon' id='signup-newuserimage' />
                 </Tilt>
                 <div className='signup-form-column'>
-                    <h2>Member Register</h2>
+                    <h2 className='signup-h2'>Member Register</h2>
                     <div className='signup-form-row'>
                         <input type='email' name='registerEmail' placeholder='Email' onChange={this.onRegisterEmailChange} />
                         <input type='password' name='registerPassword' placeholder='Password' onChange={this.onRegisterPasswordChange} />

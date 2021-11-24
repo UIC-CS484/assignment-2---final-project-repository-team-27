@@ -1,0 +1,21 @@
+.card-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: fit-content;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+#crypto-icon-img{
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.card-text{
+    display: block;
+    margin: auto;
+}

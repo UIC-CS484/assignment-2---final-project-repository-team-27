@@ -63,11 +63,11 @@ class Signin extends React.Component {
                     <img src={NewUserImage} alt='New User Icon' id='signin-newuserimage' />
                 </Tilt>
                 <div className='signin-form'>
-                    <h2>Member Login</h2>
+                    <h2 className='signin-h2'>Member Login</h2>
                     <input type='email' name='loginEmail' placeholder='Email' onChange={this.onLoginEmailChange} />
                     <input type='password' name='loginPassword' placeholder='Password' onChange={this.onLoginPasswordChange} />
                     <button type='submit' name='loginSubmit' value='login' onClick={this.onLoginSubmit}>LOGIN</button>
-                    <p id='forgot-password'>Forgot Username / Password?</p>
+                    <p className='signin-p' id='forgot-password'>Forgot Username / Password?</p>
                 </div>
                 <div className='signin-create-account'>
                     <p onClick={() => onRouteChange('signup')}>Create your account</p>

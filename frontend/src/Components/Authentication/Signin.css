@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
 }
-h2{
+.signin-h2{
     margin-bottom: 50px;
     background: linear-gradient(to right, #28ACAF, #47D534);
     background-clip: text;
@@ -69,7 +69,7 @@ button[name='loginSubmit']{
 .signin-create-account:hover{
     filter: invert(60%) sepia(17%) saturate(1534%) hue-rotate(65deg) brightness(101%) contrast(86%);
 }
-p{
+.signin-p{
     color: #666666;
     font-size: 14px;
     line-height: 1.5;

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import Card from './Card';
 
 class Home extends React.Component {
 
@@ -22,23 +23,24 @@ class Home extends React.Component {
         fetch('http://localhost:3001/home')
             .then(response => response.json())
             .then(data => {
-                this.setState({ cryptoData: data});
+                this.setState({ cryptoData: data });
             })
-          .catch( () => {
-            console.log('signin: error communicating with the server');
-        })
+            .catch(() => {
+                console.log('signin: error communicating with the server');
+            })
     }
 
     render() {
         const { onRouteChange } = this.props;
-        return (
-            <div className='home'>
-                <div className='home-form'>
-                    <h2>Welcome home, {this.state.userDetails.userName}!</h2>
+        const { cryptoData } = this.state;
+        return !cryptoData.data ?
+            <h1 className='loading-sign'>Loading</h1> :
+            (
+                <div className='home'>
+                    <Card coins={cryptoData.data.coins} />
                     <button type='submit' name='submit' value='login' onClick={() => onRouteChange('signin')}>LOGOUT</button>
                 </div>
-            </div>
-        );
+            );
     }
 }
 

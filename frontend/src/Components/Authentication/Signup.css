@@ -8,7 +8,7 @@
     justify-content: space-around;
     align-items: center;
 }
-#newuserimage{
+#signup-newuserimage{
     width: 316px;
     height: auto;
 }
@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
 }
-h2{
+.signup-h2{
     margin-bottom: 50px;
 }
 input{
@@ -73,9 +73,4 @@ button[name='registerSubmit']{
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-}
-p{
-    color: #666666;
-    font-size: 14px;
-    line-height: 1.5;
 }
