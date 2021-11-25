@@ -47,3 +47,7 @@ cd into the frontend folder and type 'npm test'. This will run a react test scri
 The file that is run is the app.test.js present inside the containers folder.
 This basically checks if the app.js contains a div element with class name of 'App'.
 Although this seems like a basic test, it is absolutely vital, as this div element is the parent frontend element that contains everything.
+
+### `responsiveness`
+
+All the pages in the application are responsive to all layouts.
