@@ -1,15 +1,15 @@
 # Assignment 3
 
-The assignment is almost complete. Thank you for your understanding.
+The assignment is complete. It satisfies all requirements.
 
 ## Backend
 
-The server has been built using node.js and express.js and passport.js. It has end points right now primarily for signin, signup and to handleAPI call.
+The server has been built using node.js and express.js.
 
 ### `npm start` starts the server
 
 cd into the backend folder and type 'npm start'. This will start the server.
-Please start the server before starting the frontend.
+The server runs on port 3001. Please start the server before starting the frontend.
 Keep this open in one terminal window.
 
 ### `npm test` starts the test scripts
@@ -21,6 +21,16 @@ There is a file called validation.test.js. This validates the inputs entered by 
 
 ![erd diagram](./backend/images/erd_diagram.drawio.png)
 
+### `charts`
+
+I am using a library called react-sparklines for the charting requirement. I get sparkline data from the api which is then fed into the
+react-sparklines library, and this renders a chart based on the latest array of prices of the cryptocurrency.
+
+### `session`
+
+I am using a library called 'knex' to facilitate database operations. express-session supports a library called connect-session-knex, I
+use this to store the session in the database.
+
 ## Frontend
 
 The frontend has been built using React.js.
@@ -28,7 +38,7 @@ The frontend has been built using React.js.
 ### `npm start` starts the react scripts
 
 cd into the frontend folder and type 'npm start'. This starts the react scripts and runs the app in development mode.
-The server runs on port 3001. React defaults to port 3000.
+React defaults to port 3000.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test` starts the test scripts
@@ -37,10 +47,3 @@ cd into the frontend folder and type 'npm test'. This will run a react test scri
 The file that is run is the app.test.js present inside the containers folder.
 This basically checks if the app.js contains a div element with class name of 'App'.
 Although this seems like a basic test, it is absolutely vital, as this div element is the parent frontend element that contains everything.
-
-## Implementation
-
-I have used a library called react-sparklines for the charting requirement.
-I'm still working on the sessions part, it still does not work as of now.
-However, all the other features work very well.
-If the username/password is incorrect, right now it is printed in the logs. In a future update, I will print it on the screen.
