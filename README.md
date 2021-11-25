@@ -1,10 +1,10 @@
-# Assignment 2
+# Assignment 3
 
-The assignment is still in progress. Please grade at the very end. I emailed the professor, he told he will forward it to the TA. Being in a single member team, it is really hard for me. Thank you so much for undertanding TA. I owe you one.
+The assignment is almost complete. Thank you for your understanding.
 
 ## Backend
 
-The server has been built using node.js and express.js and passport.js. It has end points right now primarily for signin, signup.
+The server has been built using node.js and express.js and passport.js. It has end points right now primarily for signin, signup and to handleAPI call.
 
 ### `npm start` starts the server
 
@@ -28,8 +28,8 @@ The frontend has been built using React.js.
 ### `npm start` starts the react scripts
 
 cd into the frontend folder and type 'npm start'. This starts the react scripts and runs the app in development mode.
-The server runs on port 3000. Since react defaults to port 3000, it will ask if it is okay to run in a different port, please say yes or type 'y' when prompted in the terminal. This will run it on port 3001.
-Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+The server runs on port 3001. React defaults to port 3000.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test` starts the test scripts
 
@@ -40,4 +40,7 @@ Although this seems like a basic test, it is absolutely vital, as this div eleme
 
 ## Implementation
 
+I have used a library called react-sparklines for the charting requirement.
+I'm still working on the sessions part, it still does not work as of now.
+However, all the other features work very well.
 If the username/password is incorrect, right now it is printed in the logs. In a future update, I will print it on the screen.

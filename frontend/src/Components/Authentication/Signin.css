@@ -1,12 +1,13 @@
 .signin{
     background-color: #fff;
-    width: 70%;
-    height: 80%;
+    width: 70vw;
+    min-height: 75vh;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 20px;
 }
 #signin-newuserimage{
     width: 316px;
@@ -83,4 +84,14 @@ button[name='loginSubmit']{
 #forgot-password:hover{
     color: #57b846;
     cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+    .signin{
+        min-height: 85vh;
+    }
+    .signin-create-account{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
 }
