@@ -53,7 +53,7 @@ input[name='registerMobile']{
     background: #e6e6e6 url('../../Images/phone-solid.svg') no-repeat scroll 25px 15px;
     background-size: 20px 20px;
 }
-button:hover {
+button[name='registerSubmit']:hover {
 	cursor: pointer;
     background: #333333;
 }

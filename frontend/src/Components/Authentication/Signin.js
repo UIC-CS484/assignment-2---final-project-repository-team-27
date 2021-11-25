@@ -34,7 +34,8 @@ class Signin extends React.Component {
                 body: JSON.stringify({
                     email: loginEmail,
                     password: loginPassword
-                })
+                }),
+                credentials: 'include'
             })
                 .then(response => response.json())
                 .then(data => {
@@ -49,7 +50,7 @@ class Signin extends React.Component {
                     else
                         console.log('Error signing in');
                 })
-                .catch( () => {
+                .catch(() => {
                     console.log('signin: error communicating with the server');
                 })
         }

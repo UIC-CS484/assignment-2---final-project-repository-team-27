@@ -1,7 +1,8 @@
-.home{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+nav{
+    background-color: #fff;
+    height: 70px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 input{
     color: #666666;
@@ -15,23 +16,24 @@ input{
 	border: none;
     margin-bottom: 20px;
 }
-button:hover {
+button[name='logout']:hover {
 	cursor: pointer;
     background: #333333;
 }
-button{
+button[name='logout']{
     outline: none;
 	border: none;
     font-size: 15px;
     line-height: 1.5;
     color: #fff;
-    width: 15%;
+    min-width: 12%;
     height: 50px;
     border-radius: 25px;
     background: #57b846;
     margin-top: 10px;
+    margin-right: 10px;
     font-weight: bold;
-    margin-bottom: 30px;
+    float: right;
 }
 p{
     color: #666666;
@@ -39,6 +41,16 @@ p{
     line-height: 1.5;
 }
 .loading-sign{
+    background: linear-gradient(to right, #28ACAF, #47D534);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.home-name{
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: bold;
     background: linear-gradient(to right, #28ACAF, #47D534);
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -21,6 +21,23 @@ class App extends React.Component {
         this.state = initialState;
     }
 
+    componentWillMount() {
+
+        fetch('http://localhost:3001/', {
+            method: 'get',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data===true)
+                    this.setState({ route: 'home' });
+            })
+            .catch(() => {
+                console.log('App: Error getting session');
+            })
+    }
+
     onRouteChange = (route) => {
         this.setState({ route: route });
         if (route === 'signin')

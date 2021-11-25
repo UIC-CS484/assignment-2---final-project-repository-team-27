@@ -16,7 +16,6 @@ class Home extends React.Component {
             },
             cryptoData: {}
         }
-        console.log(this.state.userDetails);
     }
 
     componentDidMount() {
@@ -30,6 +29,23 @@ class Home extends React.Component {
             })
     }
 
+    onLogoutClick = () => {
+
+        fetch('http://localhost:3001/logout', {
+            method: 'get',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include'
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(() => {
+                console.log('React: Error deleting session');
+            })
+
+    }
+
     render() {
         const { onRouteChange } = this.props;
         const { cryptoData } = this.state;
@@ -37,8 +53,12 @@ class Home extends React.Component {
             <h1 className='loading-sign'>Loading</h1> :
             (
                 <div className='home'>
+                    <nav className='nav-component'>
+                        <h2 className='home-name'>CRYPTO WORLD</h2>
+                        <button type='submit' name='logout' value='login' 
+                        onClick={() => { onRouteChange('signin'); this.onLogoutClick() } }>LOGOUT</button>
+                    </nav>
                     <Card coins={cryptoData.data.coins} />
-                    <button type='submit' name='submit' value='login' onClick={() => onRouteChange('signin')}>LOGOUT</button>
                 </div>
             );
     }

@@ -46,7 +46,8 @@ class Signup extends React.Component {
                     password: registerPassword,
                     name: registerName,
                     phone: registerPhone
-                })
+                }),
+                credentials: 'include'
             })
                 .then(response => response.json())
                 .then(data => {
