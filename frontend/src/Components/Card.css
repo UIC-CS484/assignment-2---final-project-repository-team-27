@@ -1,6 +1,8 @@
 .card-list{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 20px;
 }
 .card{
     background-color: #fff;

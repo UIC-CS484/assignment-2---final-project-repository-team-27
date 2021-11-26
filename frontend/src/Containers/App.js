@@ -21,7 +21,7 @@ class App extends React.Component {
         this.state = initialState;
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
 
         fetch('http://localhost:3001/', {
             method: 'get',
@@ -30,7 +30,7 @@ class App extends React.Component {
         })
             .then(response => response.json())
             .then(data => {
-                if (data===true)
+                if (data === true)
                     this.setState({ route: 'home' });
             })
             .catch(() => {

@@ -19,10 +19,14 @@
     align-items: center;
 }
 .signin-h2{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     background: linear-gradient(to right, #28ACAF, #47D534);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.login-status{
+    margin-bottom: 20px;
+    color: red;
 }
 input{
     color: #666666;

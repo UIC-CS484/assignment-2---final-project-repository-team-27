@@ -10,22 +10,26 @@ class Signin extends React.Component {
         super(props);
         this.state = {
             loginEmail: '',
-            loginPassword: ''
+            loginPassword: '',
+            loginSuccess: ''
         }
     }
 
     onLoginEmailChange = (event) => {
         this.setState({ loginEmail: event.target.value })
+        this.setState({ loginSuccess: '' })
+
     }
 
     onLoginPasswordChange = (event) => {
         this.setState({ loginPassword: event.target.value })
+        this.setState({ loginSuccess: '' })
     }
 
     onLoginSubmit = () => {
         const { loginEmail, loginPassword } = this.state;
         if (loginEmail.length === 0 || loginPassword.length === 0) {
-            console.log('All fields are necessary. Please enter your details');
+            this.setState({ loginSuccess: 'All fields are necessary. Please enter your details' })
         }
         else {
             fetch('http://localhost:3001/signin', {
@@ -40,12 +44,11 @@ class Signin extends React.Component {
                 .then(response => response.json())
                 .then(data => {
                     if (typeof data === 'object') {
-                        console.log('Login success');
                         this.props.loadUser(data);
                         this.props.onRouteChange('home');
                     }
                     else if (typeof data === 'string') {
-                        console.log("Login fail");
+                        this.setState({ loginSuccess: 'Incorrect username/password' })
                     }
                     else
                         console.log('Error signing in');
@@ -58,6 +61,7 @@ class Signin extends React.Component {
 
     render() {
         const { onRouteChange } = this.props;
+        const { loginSuccess } = this.state;
         return (
             <div className='signin'>
                 <Tilt className="Tilt" options={{ max: 50, perspective: 700 }} >
@@ -65,6 +69,7 @@ class Signin extends React.Component {
                 </Tilt>
                 <div className='signin-form'>
                     <h2 className='signin-h2'>Member Login</h2>
+                    { <p className='login-status'> {loginSuccess} </p> }
                     <input type='email' name='loginEmail' placeholder='Email' onChange={this.onLoginEmailChange} />
                     <input type='password' name='loginPassword' placeholder='Password' onChange={this.onLoginPasswordChange} />
                     <button type='submit' name='loginSubmit' value='login' onClick={this.onLoginSubmit}>LOGIN</button>

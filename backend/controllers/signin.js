@@ -12,9 +12,9 @@ const handleSignin = (req, res, knex, bcrypt) => {
                 })
             }
             else
-                res.status(400).json('Incorrect password');
+                res.status(200).json('Incorrect password');
         })
-        .catch(() => res.status(400).json('Incorrect username'))
+        .catch(() => res.status(200).json('Incorrect username'))
         
 }
 

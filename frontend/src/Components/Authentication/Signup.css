@@ -18,10 +18,15 @@
     align-items: center;
 }
 .signup-h2{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     background: linear-gradient(to right, #28ACAF, #47D534);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.register-status{
+    margin-left: 10px;
+    margin-bottom: 20px;
+    color: red;
 }
 input{
     color: #666666;
@@ -76,6 +81,21 @@ button[name='registerSubmit']{
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
+}
+.signup-create-account{
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.signup-create-account:hover{
+    filter: invert(60%) sepia(17%) saturate(1534%) hue-rotate(65deg) brightness(101%) contrast(86%);
+}
+#signup-arrow-icon{
+    width: 20px;
+    height: 19px;
+    align-self: flex-end;
+    margin-right: 5px;
 }
 @media screen and (min-width: 481px) and (max-width: 865px) {
     .signup-form-row{
