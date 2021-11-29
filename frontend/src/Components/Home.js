@@ -20,7 +20,7 @@ class Home extends React.Component {
 
     componentDidMount() {
 
-        fetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}/home`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/home`)
             .then(response => response.json())
             .then(data => {
                 this.setState({ cryptoData: data });
@@ -33,7 +33,7 @@ class Home extends React.Component {
 
     onLogoutClick = () => {
 
-        fetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}/logout`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/logout`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include'

@@ -32,7 +32,7 @@ class Signin extends React.Component {
             this.setState({ loginSuccess: 'All fields are necessary. Please enter your details' })
         }
         else {
-            fetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}/signin`, {
+            fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/signin`, {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

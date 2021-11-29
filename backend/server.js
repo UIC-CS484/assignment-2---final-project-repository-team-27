@@ -26,7 +26,7 @@ const home = require('./controllers/home');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.use(cors({
-    origin: `${process.env.CLIENT_URL}:${process.env.CLIENT_PORT}`,
+    origin: `${process.env.CLIENT_URL}${process.env.CLIENT_PORT}`,
     credentials: true
 }));
 app.use(session({
