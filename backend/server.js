@@ -12,6 +12,7 @@ const knex = require('knex')({
     connection: {
         filename: './cryptodb.db',
     },
+    useNullAsDefault: true
 });
 
 const sessionStore = new KnexSessionStore({
@@ -25,7 +26,7 @@ const home = require('./controllers/home');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: `${process.env.CLIENT_URL}:${process.env.CLIENT_PORT}`,
     credentials: true
 }));
 app.use(session({
@@ -55,4 +56,4 @@ app.get('/logout', (req, res) => {
     })
 });
 
-app.listen(3001, () => { console.log('The server is now running on port 3001, and is ready to listen and respond to requests'); });
+app.listen(process.env.SERVER_PORT, () => { console.log('The server is now running, and is ready to listen and respond to requests'); });

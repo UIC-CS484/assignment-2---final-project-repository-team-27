@@ -19,7 +19,8 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3001/home')
+
+        fetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}/home`)
             .then(response => response.json())
             .then(data => {
                 this.setState({ cryptoData: data });
@@ -27,11 +28,12 @@ class Home extends React.Component {
             .catch(() => {
                 console.log('signin: error communicating with the server');
             })
+            
     }
 
     onLogoutClick = () => {
 
-        fetch('http://localhost:3001/logout', {
+        fetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}/logout`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include'

@@ -44,7 +44,7 @@ class Signup extends React.Component {
         }
         else {
 
-            fetch('http://localhost:3001/register', {
+            fetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}/register`, {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

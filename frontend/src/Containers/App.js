@@ -22,8 +22,7 @@ class App extends React.Component {
     }
 
     UNSAFE_componentWillMount() {
-
-        fetch('http://localhost:3001/', {
+        fetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}/`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include'
