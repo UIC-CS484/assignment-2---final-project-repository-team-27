@@ -56,4 +56,5 @@ app.get('/logout', (req, res) => {
     })
 });
 
-app.listen(process.env.SERVER_PORT, () => { console.log('The server is now running, and is ready to listen and respond to requests'); });
+app.listen(process.env.PORT || process.env.SERVER_PORT, () => { 
+    console.log('The server is now running, and is ready to listen and respond to requests'); });
