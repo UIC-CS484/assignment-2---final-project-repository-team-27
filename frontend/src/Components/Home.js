@@ -56,7 +56,7 @@ class Home extends React.Component {
             (
                 <div className='home'>
                     <nav className='nav-component'>
-                        <h2 className='home-name'>CRYPTO WORLD</h2>
+                        <h2 className='home-name'>CRYPTOVERSE</h2>
                         <button type='submit' name='logout' value='login' 
                         onClick={() => { onRouteChange('signin'); this.onLogoutClick() } }>LOGOUT</button>
                     </nav>

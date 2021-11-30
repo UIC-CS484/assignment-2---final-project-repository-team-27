@@ -1,0 +1,81 @@
+name: Cryptoverse CI & CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build_back:
+
+    runs-on: ubuntu-latest
+      
+    strategy:
+      matrix:
+        node-version: [14.18.1]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }} for backend
+      uses: actions/setup-node@v2
+    - name : Install dependancies, build, test the node js app
+      working-directory: ./backend
+      run: |
+          npm ci
+          npm run build --if-present
+          npm test
+
+  deploy_back:
+    
+    needs: build_back
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Containerize, push and deploy backend to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name:  ${{ secrets.HEROKU_APP_NAME_BACK }}
+          heroku_email:  ${{ secrets.HEROKU_EMAIL }}
+          usedocker: true
+          appdir: "backend"
+  
+  build_front:
+
+    needs: deploy
+    runs-on: ubuntu-latest
+      
+    strategy:
+      matrix:
+        node-version: [14.18.1]
+
+    steps:
+      - name: Checkout the branch
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }} for frontend
+        uses: actions/setup-node@v2
+      - name : Install dependancies, build, test the react js app
+        working-directory: ./frontend
+        run: |
+          npm ci
+          npm run build --if-present
+          npm test
+  
+  deploy_front:
+    
+    needs: build_front
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Containerize, push and deploy frontend to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name:  ${{ secrets.HEROKU_APP_NAME_FRONT }} #Must be unique in Heroku
+          heroku_email:  ${{ secrets.HEROKU_EMAIL }}
+          usedocker: true
+          appdir: "frontend"
