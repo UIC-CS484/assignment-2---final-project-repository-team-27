@@ -38,12 +38,15 @@ app.use(session({
 }))
 
 app.get('/', (req, res) => {
+    res.status(200).json('Welcome to the server');
+})
+
+app.get('/session', (req, res) => {
     if (req.session.isAuth)
         res.status(200).json(req.session.isAuth);
     else
         res.status(200).json('Server: session does not exist');
 })
-
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, knex, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, knex, bcrypt) });
 app.get('/home', (req, res) => { home.handleAPICall(req, res) });

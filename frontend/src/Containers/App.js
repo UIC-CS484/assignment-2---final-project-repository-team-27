@@ -22,7 +22,7 @@ class App extends React.Component {
     }
 
     UNSAFE_componentWillMount() {
-        fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/session`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include'
