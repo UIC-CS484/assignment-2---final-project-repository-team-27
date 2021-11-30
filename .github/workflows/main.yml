@@ -59,8 +59,7 @@ jobs:
       - name : Install dependancies, build, test the react js app
         working-directory: ./frontend
         run: |
-          npm ci
-          npm test
+          npm i -f
   
   deploy_front:
     
