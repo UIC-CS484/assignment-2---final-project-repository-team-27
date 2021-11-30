@@ -2,13 +2,19 @@
 
 The assignment is complete. It satisfies all requirements.
 
+## Development mode
+
+Please note that the app is currently being deployed, hence some extra steps need to be done to make it work in development mode.<br/>
+Please go to the .env file in the frontend folder and the backend folder, and change the CLIENT_URL and SERVER_URL to http://localhost
+Please change the CLIENT_PORT to 3000 and the SERVER_PORT to 3005.
+
 ## Backend
 
 The server has been built using node.js and express.js.
 
 ### `npm start` starts the server
 
-cd into the backend folder and type 'npm start'. This will start the server.
+cd into the backend folder and type 'npm install' followed by 'npm start'. This will start the server.
 The server runs on port 3001. Please start the server before starting the frontend.
 Keep this open in one terminal window.
 
@@ -37,7 +43,7 @@ The frontend has been built using React.js.
 
 ### `npm start` starts the react scripts
 
-cd into the frontend folder and type 'npm start'. This starts the react scripts and runs the app in development mode.
+cd into the frontend folder and type 'npm install' followed by 'npm start'. This starts the react scripts and runs the app in development mode.
 React defaults to port 3000.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
