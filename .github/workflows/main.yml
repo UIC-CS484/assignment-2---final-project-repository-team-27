@@ -43,7 +43,7 @@ jobs:
   
   build_front:
 
-    needs: deploy
+    needs: deploy_back
     runs-on: ubuntu-latest
       
     strategy:
