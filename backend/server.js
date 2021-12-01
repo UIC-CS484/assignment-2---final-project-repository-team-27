@@ -33,7 +33,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 31, sameSite: 'none' },
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 31, sameSite: 'none', secure: true },
     store: sessionStore
 }))
 
