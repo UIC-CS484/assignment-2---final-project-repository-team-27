@@ -36,6 +36,7 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 31, sameSite: 'none', secure: true, httpOnly: true },
     store: sessionStore
 }))
+app.set('trust proxy', 1);
 
 app.get('/', (req, res) => {
     res.status(200).json('Welcome to the server');
