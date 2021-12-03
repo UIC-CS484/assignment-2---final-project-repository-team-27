@@ -19,6 +19,15 @@
 }
 .card-text{
     display: block;
-    margin: auto;
     margin-bottom: 10px;
+}
+.p-card-text{
+    line-height: 24px;
+    font-weight: 500;
+}
+#green{
+    color: green;
+}
+#red{
+    color: red;
 }

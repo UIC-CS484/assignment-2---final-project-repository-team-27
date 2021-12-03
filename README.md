@@ -2,11 +2,12 @@
 
 The assignment is complete. It satisfies all requirements.
 
-## Development mode
+## Production mode
 
-Please note that the app is currently being deployed, hence some extra steps need to be done to make it work in development mode.<br/>
-Please go to the .env file in the frontend folder and the backend folder, and change the CLIENT_URL and SERVER_URL to http://localhost
-Please change the CLIENT_PORT to 3000 and the SERVER_PORT to 3005.
+Please note that the app has been deployed so it will not work in development mode as ports and urls in the .env file have been changed.
+Heroku has some weird sleep mode in the free plan, so it may take a while for the website to load. Please be patient.
+This is the url to the frontend - [https://cryptoversefront.herokuapp.com/](https://cryptoversefront.herokuapp.com/)
+This is the url to the backend - [https://cryptoverseback.herokuapp.com/](https://cryptoverseback.herokuapp.com/)
 
 ## Backend
 

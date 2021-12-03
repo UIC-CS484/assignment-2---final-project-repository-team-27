@@ -33,10 +33,10 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 31, sameSite: 'none', secure: true, httpOnly: true },
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 31},
     store: sessionStore
 }))
-app.set('trust proxy', 1);
+//app.set('trust proxy', 1);
 
 app.get('/', (req, res) => {
     res.status(200).json('Welcome to the server');

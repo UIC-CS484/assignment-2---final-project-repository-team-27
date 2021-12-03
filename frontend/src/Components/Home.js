@@ -8,6 +8,7 @@ class Home extends React.Component {
         super(props);
         const { currentUser } = this.props;
         this.state = {
+            searchfield: '',
             userDetails: {
                 userId: currentUser.id,
                 userName: currentUser.name,
@@ -28,7 +29,11 @@ class Home extends React.Component {
             .catch(() => {
                 console.log('signin: error communicating with the server');
             })
-            
+
+    }
+
+    onSearchChange = (event) => {
+        this.setState({ searchfield: event.target.value })
     }
 
     onLogoutClick = () => {
@@ -50,17 +55,24 @@ class Home extends React.Component {
 
     render() {
         const { onRouteChange } = this.props;
-        const { cryptoData } = this.state;
+        const { cryptoData, searchfield } = this.state;
+        let filteredCryptoData;
+        if (cryptoData.data) {
+            filteredCryptoData = cryptoData.data.coins.filter(coin => {
+                return coin.name.toLowerCase().includes(searchfield.toLowerCase());
+            })
+        }
         return !cryptoData.data ?
             <h1 className='loading-sign'>Loading</h1> :
             (
                 <div className='home'>
-                    <nav className='nav-component'>
+                    <nav className='nav-component sticky'>
+                        <input type='search' name='searchbar' placeholder='search' onChange={this.onSearchChange} />
                         <h2 className='home-name'>CRYPTOVERSE</h2>
-                        <button type='submit' name='logout' value='login' 
-                        onClick={() => { onRouteChange('signin'); this.onLogoutClick() } }>LOGOUT</button>
+                        <button type='submit' name='logout' value='login'
+                            onClick={() => { onRouteChange('signin'); this.onLogoutClick() }}>LOGOUT</button>
                     </nav>
-                    <Card coins={cryptoData.data.coins} />
+                    <Card coins={filteredCryptoData} />
                 </div>
             );
     }
