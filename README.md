@@ -1,6 +1,6 @@
 # Assignment 3
 
-The assignment is complete. It satisfies all requirements.
+Team #26. The assignment is complete. It satisfies all requirements.
 
  ## Implementation
 
