@@ -5,7 +5,7 @@ const handleAPICall = (req, res) => {
 
     const options = {
         method: 'GET',
-        url: 'https://api.coinranking.com/v2/coins',
+        url: 'https://api.coinranking.com/v2/coins?limit=100',
         headers: {
             'x-access-token': process.env.API_KEY
         }

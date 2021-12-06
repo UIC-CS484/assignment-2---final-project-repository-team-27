@@ -102,7 +102,7 @@ class Signup extends React.Component {
                     <button type='submit' name='registerSubmit' value='login' onClick={this.onRegisterSubmit}>REGISTER</button>
                     <div className='signup-create-account'>
                     <img src={longArrowLeftIcon} alt='Left Arrow Icon' id='signup-arrow-icon' />
-                    <p onClick={() => onRouteChange('signin')}>Sign into your account</p>
+                    <p className='signup-p' onClick={() => onRouteChange('signin')}>Sign into your account</p>
                 </div>
                 </div>
             </div>

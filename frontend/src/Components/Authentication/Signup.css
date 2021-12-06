@@ -28,6 +28,10 @@
     margin-left: 10px;
     margin-bottom: 20px;
     color: red;
+    font-weight: 500;
+}
+.signup-p{
+    font-weight: 500;
 }
 input{
     color: #666666;

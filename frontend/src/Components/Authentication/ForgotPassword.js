@@ -172,7 +172,7 @@ class ForgotPassword extends React.Component {
                 </div>
                 <div className='forgotpassword-signin'>
                     <img src={longArrowLeftIcon} alt='Left Arrow Icon' id='forgotpassword-arrow-icon' />
-                    <p onClick={() => onRouteChange('signin')}>Sign into your account</p>
+                    <p className='forgotpassword-p' onClick={() => onRouteChange('signin')}>Sign into your account</p>
                 </div>
             </div>
         )

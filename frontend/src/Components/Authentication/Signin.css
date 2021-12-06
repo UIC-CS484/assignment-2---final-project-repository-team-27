@@ -27,6 +27,7 @@
 .login-status{
     margin-bottom: 20px;
     color: red;
+    font-weight: 500;
 }
 input{
     color: #666666;
@@ -78,6 +79,7 @@ button[name='loginSubmit']{
     color: #666666;
     font-size: 14px;
     line-height: 1.5;
+    font-weight: 500;
 }
 #signin-arrow-icon{
     width: 20px;

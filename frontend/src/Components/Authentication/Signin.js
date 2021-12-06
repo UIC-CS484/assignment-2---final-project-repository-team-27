@@ -76,7 +76,7 @@ class Signin extends React.Component {
                     onClick={() => onRouteChange('forgotpassword')}>Forgot Password?</p>
                 </div>
                 <div className='signin-create-account'>
-                    <p onClick={() => onRouteChange('signup')}>Create your account</p>
+                    <p className='signin-p' onClick={() => onRouteChange('signup')}>Create your account</p>
                     <img src={longArrowIcon} alt='Arrow Icon' id='signin-arrow-icon' />
                 </div>
             </div>

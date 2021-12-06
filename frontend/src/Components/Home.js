@@ -104,6 +104,7 @@ class Home extends React.Component {
                     <nav className='nav-component sticky'>
                         <input type='search' name='searchbar' placeholder='search' onChange={this.onSearchChange} />
                         <h2 className='home-name'>CRYPTOVERSE</h2>
+                        <h2 className='home-name-short'>CV</h2>
                         <button type='submit' name='logout' value='logout'
                             onClick={() => { this.onLogoutClick(); onRouteChange('signin') }}>LOGOUT</button>
                         <button type='button' name='delete' value='delete'
