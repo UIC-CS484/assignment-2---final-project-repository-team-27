@@ -28,7 +28,7 @@ class Signin extends React.Component {
     onLoginSubmit = () => {
         const { loginEmail, loginPassword } = this.state;
         if (loginEmail.length === 0 || loginPassword.length === 0) {
-            this.setState({ loginSuccess: 'All fields are necessary. Please enter your details' })
+            this.setState({ loginSuccess: 'All fields are necessary. Please enter your details.' })
         }
         else {
             fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/signin`, {
@@ -72,7 +72,8 @@ class Signin extends React.Component {
                     <input type='email' name='loginEmail' placeholder='Email' onChange={this.onLoginEmailChange} />
                     <input type='password' name='loginPassword' placeholder='Password' onChange={this.onLoginPasswordChange} />
                     <button type='submit' name='loginSubmit' value='login' onClick={this.onLoginSubmit}>LOGIN</button>
-                    <p className='signin-p' id='forgot-password'>Forgot Username / Password?</p>
+                    <p className='signin-p' id='forgot-password' 
+                    onClick={() => onRouteChange('forgotpassword')}>Forgot Password?</p>
                 </div>
                 <div className='signin-create-account'>
                     <p onClick={() => onRouteChange('signup')}>Create your account</p>

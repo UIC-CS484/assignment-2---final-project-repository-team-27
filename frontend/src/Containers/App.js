@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import Signin from '../Components/Authentication/Signin';
 import Signup from '../Components/Authentication/Signup';
+import ForgotPassword from '../Components/Authentication/ForgotPassword';
 import Home from '../Components/Home';
 
 const initialState = {
@@ -73,7 +74,10 @@ class App extends React.Component {
                         ? <Home currentUser={this.state.user} onRouteChange={this.onRouteChange} />
                         : (route === 'signin'
                             ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-                            : <Signup loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+                            : (route === 'signup'
+                            ? <Signup loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+                            : <ForgotPassword onRouteChange={this.onRouteChange}/>
+                            )
                         )
                 }
             </div>

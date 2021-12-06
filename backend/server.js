@@ -62,7 +62,7 @@ app.get('/logout', (req, res) => {
             res.status(200).json('Session cleared');
     })
 });
-app.get('/generateotp', (req, res) => { generateOTP.handleOTPGeneration(req, res, knex) });
+app.post('/generateotp', (req, res) => { generateOTP.handleOTPGeneration(req, res, knex) });
 app.put('/updatepassword', (req, res) => { updatePassword.handleUpdate(req, res, knex,  bcrypt) });
 app.delete('/delete', (req, res) => { deleteUser.handleDelete(req, res, knex) });
 
