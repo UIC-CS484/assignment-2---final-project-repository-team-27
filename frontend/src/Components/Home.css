@@ -14,7 +14,7 @@ nav{
     top: 0;
     width: 100%;
 }
-input{
+input[name='searchbar']{
     color: #666666;
     height: 50px;
     width: 250px;
@@ -25,8 +25,6 @@ input{
     outline: none;
 	border: none;
     margin-bottom: 20px;
-}
-input[name='searchbar']{
     background: #e6e6e6 url('../Images/envelope-solid.svg') no-repeat scroll 25px 15px;
     background-size: 20px 20px;
     float: left;
@@ -47,6 +45,25 @@ button[name='logout']{
     height: 50px;
     border-radius: 25px;
     background: #57b846;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    float: right;
+}
+button[name='delete']:hover {
+	cursor: pointer;
+    background: #333333;
+}
+button[name='delete']{
+    outline: none;
+	border: none;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    min-width: 12%;
+    height: 50px;
+    border-radius: 25px;
+    background: red;
     margin-top: 10px;
     margin-right: 10px;
     font-weight: bold;

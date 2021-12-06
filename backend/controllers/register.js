@@ -12,10 +12,11 @@ const handleRegister = (req, res, knex, bcrypt) => {
                 .then(data => {
                     return trx('users').insert({ id: data[0], name: name, email: email, phone: phone })
                         .then(user => {
-                            trx('users').select('*').where('id', user[0])
-                                .then(response => { 
+                            trx('users').select('*').where('id', data[0])
+                                .then(response => {
                                     req.session.isAuth = true;
-                                    res.status(200).json(response[0]) 
+                                    req.session.user = response[0];
+                                    res.status(200).json(response[0]);
                                 })
                         })
                 })

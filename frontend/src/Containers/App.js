@@ -22,6 +22,7 @@ class App extends React.Component {
     }
 
     UNSAFE_componentWillMount() {
+        
         fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/session`, {
             method: 'get',
             headers: { 'Content-Type': 'application/json' },
@@ -29,8 +30,17 @@ class App extends React.Component {
         })
             .then(response => response.json())
             .then(data => {
-                if (data === true)
+                if (typeof data === 'object'){
                     this.setState({ route: 'home' });
+                    this.setState({
+                        user: {
+                            id: data.id,
+                            name: data.name,
+                            phone: data.phone,
+                            email: data.email,
+                        }
+                    })
+                }
             })
             .catch(() => {
                 console.log('App: Error getting session');

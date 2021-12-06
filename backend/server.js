@@ -22,6 +22,9 @@ const sessionStore = new KnexSessionStore({
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const home = require('./controllers/home');
+const deleteUser = require('./controllers/deleteUser');
+const generateOTP = require('./controllers/generateOTP')
+const updatePassword = require('./controllers/updatePassword');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
@@ -44,7 +47,7 @@ app.get('/', (req, res) => {
 
 app.get('/session', (req, res) => {
     if (req.session.isAuth)
-        res.status(200).json(req.session.isAuth);
+        res.status(200).json(req.session.user);
     else
         res.status(200).json('Server: session does not exist');
 })
@@ -59,6 +62,10 @@ app.get('/logout', (req, res) => {
             res.status(200).json('Session cleared');
     })
 });
+app.get('/generateotp', (req, res) => { generateOTP.handleOTPGeneration(req, res, knex) });
+app.put('/updatepassword', (req, res) => { updatePassword.handleUpdate(req, res, knex,  bcrypt) });
+app.delete('/delete', (req, res) => { deleteUser.handleDelete(req, res, knex) });
 
-app.listen(process.env.PORT || process.env.SERVER_PORT, () => { 
-    console.log('The server is now running, and is ready to listen and respond to requests'); });
+app.listen(process.env.PORT || process.env.SERVER_PORT, () => {
+    console.log('The server is now running, and is ready to listen and respond to requests'); 
+});

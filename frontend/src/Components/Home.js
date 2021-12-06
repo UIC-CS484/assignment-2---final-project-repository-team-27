@@ -20,7 +20,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-
+       
         fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/home`)
             .then(response => response.json())
             .then(data => {
@@ -32,8 +32,42 @@ class Home extends React.Component {
 
     }
 
+    /*
+        const { currentUser } = this.props;
+        this.setState({
+            userDetails: {
+                userId: currentUser.id,
+                userName: currentUser.name,
+                userPhone: currentUser.phone,
+                userEmail: currentUser.email
+            }
+        })
+    */
+
     onSearchChange = (event) => {
         this.setState({ searchfield: event.target.value })
+    }
+
+    onDeleteClick = () => {
+
+        const { currentUser } = this.props;
+       
+        fetch(`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_PORT}/delete`, {
+            method: 'delete',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: currentUser.id
+            }),
+            credentials: 'include'
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(() => {
+                console.log('React: Error deleting user');
+            })
+
     }
 
     onLogoutClick = () => {
@@ -54,6 +88,7 @@ class Home extends React.Component {
     }
 
     render() {
+
         const { onRouteChange } = this.props;
         const { cryptoData, searchfield } = this.state;
         let filteredCryptoData;
@@ -69,8 +104,10 @@ class Home extends React.Component {
                     <nav className='nav-component sticky'>
                         <input type='search' name='searchbar' placeholder='search' onChange={this.onSearchChange} />
                         <h2 className='home-name'>CRYPTOVERSE</h2>
-                        <button type='submit' name='logout' value='login'
-                            onClick={() => { onRouteChange('signin'); this.onLogoutClick() }}>LOGOUT</button>
+                        <button type='submit' name='logout' value='logout'
+                            onClick={() => { this.onLogoutClick(); onRouteChange('signin') }}>LOGOUT</button>
+                        <button type='button' name='delete' value='delete'
+                            onClick={() => { this.onDeleteClick(); onRouteChange('signin') }}>DELETE</button>
                     </nav>
                     <Card coins={filteredCryptoData} />
                 </div>

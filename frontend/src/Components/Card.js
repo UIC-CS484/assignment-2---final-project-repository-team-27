@@ -33,7 +33,8 @@ const Card = ({ coins }) => {
                     });
 
                     return (
-                            <div key={coin.rank + 300} className='card'>
+                            <div key={coin.rank + 300} className='card' 
+                            onClick={ ()=> window.open(coin.coinrankingUrl, "_blank", 'noopener,noreferrer') } >
                                 <img key={coin.rank + 250} alt='crypto icon' src={coin.iconUrl} width="80" height="80" id='crypto-icon-img' />
                                 <div key={coin.rank + 350} className='card-text'>
                                     <p className='p-card-text' key={coin.rank}>
