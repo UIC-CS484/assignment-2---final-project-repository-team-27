@@ -35,7 +35,7 @@ Team #26. The assignment is complete. It satisfies all requirements.
 ### API
 
 I use the coinranking API to obtain data about crypto. This is the link to the documentation:
-[https://developers.coinranking.com/api/documentation/coins](https://developers.coinranking.com/api/documentation/coins)
+[https://developers.coinranking.com/api/documentation/coins](https://developers.coinranking.com/api/documentation/coins)  <br/>  <br/>
 ![Interaction with RESTFul API](./backend/images/Interaction_with_REST_API.png)
 
 
@@ -57,7 +57,7 @@ I plan to add a tracker on top which will display the cryptocurrencies that a us
 
 ### Tools and Resources
 
-These are the fundamental technologies that were used to build this full-stack application:
+These are the fundamental technologies that were used to build this full-stack application:  <br/>
 Html, CSS, Javascript <br/>
 React.js <br/>
 Node.js, Express.js <br/>
@@ -65,7 +65,7 @@ Jest.js <br/>
 Knex.js <br/>
 Sqlite3 <br/>
 
-These are some libraries that were used to make it even better:
+These are some libraries that were used to make it even better:  <br/>
 React Sparklines <br/>
 React Tilt <br/>
 Nodemailer <br/>
