@@ -36,6 +36,7 @@ Team #26. The assignment is complete. It satisfies all requirements.
 
 I use the coinranking API to obtain data about crypto. This is the link to the documentation:
 [https://developers.coinranking.com/api/documentation/coins](https://developers.coinranking.com/api/documentation/coins)
+![Interaction with RESTFul API](./backend/images/Interaction_with_REST_API.png)
 
 
 ### Challenges
@@ -46,7 +47,7 @@ This was definitely one of the hardest challenges as there was no help on the in
 app.set ('trust proxy', 1) <br/>
 cookie: { sameSite: 'none', secure: true, httpOnly: true }
 
-### areas of my application that I would like to enhance or restructure given more time
+### Areas of my application that I would like to enhance or restructure given more time
 
 Definitely my CSS files on the frontend. They're a huge mess. I would really like to restructure it in such a way that there is a base style and any compoenents that need more detailed or specific styles can just inherit that functionality and add on to it.
 
@@ -54,9 +55,23 @@ Definitely my CSS files on the frontend. They're a huge mess. I would really lik
 
 I plan to add a tracker on top which will display the cryptocurrencies that a user has invested in. I will take it as an input from the user and display that on top in a row of cards. As the user is primarily going to be concerned only on these. But he can always scroll below and take a look at the rest of them out there or use the search functionality to establish the same.
 
-### Request for extra credit
+### Tools and Resources
 
-I could have built my application around a monolothic architecture without facing any of the challenges listed above. As most of the code was provided by the instructor in class and through the slides. I decided to go above and beyond and test myself to the limits by decoupling the frontend and backend completely. So they exist as complete independant entities now. This will greatly help when used with kubernetes. <br/> <br/>
+These are the fundamental technologies that were used to build this full-stack application:
+Html, CSS, Javascript <br/>
+React.js <br/>
+Node.js, Express.js <br/>
+Jest.js <br/>
+Knex.js <br/>
+Sqlite3 <br/>
+
+These are some libraries that were used to make it even better:
+React Sparklines <br/>
+React Tilt <br/>
+Nodemailer <br/>
+Knex.js <br/>
+Bcrypt.js <br/>
+
 
 
 ## Production mode
