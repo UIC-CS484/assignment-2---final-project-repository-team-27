@@ -64,6 +64,9 @@ Node.js, Express.js <br/>
 Jest.js <br/>
 Knex.js <br/>
 Sqlite3 <br/>
+Github Actions for CI/CD <br/>
+Docker <br/>
+Heroku <br/>
 
 These are some libraries that were used to make it even better:  <br/>
 React Sparklines <br/>
@@ -71,8 +74,6 @@ React Tilt <br/>
 Nodemailer <br/>
 Knex.js <br/>
 Bcrypt.js <br/>
-
-
 
 ## Production mode
 
