@@ -61,6 +61,7 @@ This was definitely one of the hardest challenges as there was no help on the in
 app.set ('trust proxy', 1) <br/>
 cookie: { sameSite: 'none', secure: true, httpOnly: true }
 <br/>
+
 Update 2023 - This web app was done in Fall 21. Since then, Heroku removed their free tier, so I had to request for a student account. I had some trouble after I got the student account approved, for some reason, Heroku could not run my backend server. I had to dig in, read the Heroku logs and find a fix. Turns out that some npm dependancies that were required did not exist in package.json. It was hard to find because I could not replicate the bug locally. So I added 'cjs-loader' and the 'request' to package.json. This fixed the issue.
 
 ## Backend
