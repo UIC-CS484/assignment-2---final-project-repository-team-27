@@ -46,9 +46,9 @@ This is the data I read in:
  ## User authentication & security
 
  For authentication, I am implementing secure storage of passwords through salting the hashes to add an element of randomness. I am also enforcing strong passwords by accepting only passwords that contain a lowercase, uppercase, number and a special character. The minimum length of the password is also 8 characters. <br/> <br/>
- For security, I have implemented a microservices-based architecture. My frontend manages all user interactions, and it contains no sensitive data at all. I have a backend server that contains all the sensitive data and communicates only what is required at any point in time to the frontend, which also manages to keep the frontend light and fast. <br/> <br/>
+ For security, I have implemented a microservices-based architecture. My frontend manages all user interactions, and it contains no sensitive data at all. I have a backend server that contains all the sensitive data and communicates only what is required at any point in time to the frontend, which also manages to keep the frontend light and fast. <br/>
 
- I have used object relational mapping through a library called knex.js to prevent SQL injection attacks. My server also has a cors module that allows only my frontend to connect with it through a parameter called 'origin'. This implies no one else in the world can access my server at the url. The server will also sit in its own docker container, so essentially it'll be in a world of its own. <br/> <br/>
+ I have used object relational mapping through a library called knex.js to prevent SQL injection attacks. My server also has a cors module that allows only my frontend to connect with it through a parameter called 'origin'. This implies no one else in the world can access my server at the url. The server will also sit in its own docker container, so essentially it'll be in a world of its own. <br/>
 
  I also have a separate .env file where I store sensitive data. For the purpose of grading, I have uploaded that file as well, but ideally I will put that in gitignore and keep it safe and secure in my laptop.
 
@@ -60,10 +60,8 @@ This was definitely one of the hardest challenges as there was no help on the in
 
 app.set ('trust proxy', 1) <br/>
 cookie: { sameSite: 'none', secure: true, httpOnly: true }
-
-<br/> <br/>
-
-Update 2023 - This web app was done in Fall 21. Since then, Heroku removed their free tier, so I had to request for a student account. I had some trouble after I got the student account approved, for some reason, Heroku could not run my backend server. I had to dig in, read the Heroku logs and find a fix. Turns out that some npm dependancies that were required did not exist in package.json. It was hard to find because I could not replicate the bug locally. So I added 'cjs-loader' and the 'request' to package.json.
+<br/>
+Update 2023 - This web app was done in Fall 21. Since then, Heroku removed their free tier, so I had to request for a student account. I had some trouble after I got the student account approved, for some reason, Heroku could not run my backend server. I had to dig in, read the Heroku logs and find a fix. Turns out that some npm dependancies that were required did not exist in package.json. It was hard to find because I could not replicate the bug locally. So I added 'cjs-loader' and the 'request' to package.json. This fixed the issue.
 
 ## Backend
 
@@ -77,15 +75,15 @@ cd into the backend folder and type 'npm install' followed by 'npm start'. This 
 
 cd into the backend folder and type 'npm test'. There is a file called validation.test.js. This validates the inputs entered by the user in the sign up form.
 
-### ERD diagram <br/><br/>
+### ERD <br/><br/>
 
 ![erd diagram](./backend/images/erd_diagram.drawio.png)
 
-### charts
+### Charts
 
 I am using a library called react-sparklines for the charting requirement. I get sparkline data from the api which is then fed into the react-sparklines library, and this renders a chart based on the latest array of prices of the cryptocurrency.
 
-### session
+### Sessions
 
 Sessions are captured at the frontend and then sent to the backend. I am using a library called 'knex' to facilitate database operations. express-session supports a library called connect-session-knex, I use this to store the session in the database.
 
