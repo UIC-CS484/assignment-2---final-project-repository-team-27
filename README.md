@@ -2,14 +2,15 @@
 
 ### Introduction
 
-Cryptoverse is a web app I built as my final project for the course CS 484 - Secure Web Application Development instructed by prof. [Chris Fulton](https://www.linkedin.com/in/christopher-fulton-5a053a17). It displays information about the top 100 cryptocurrencies in a card layout. It is dynamic and responsive to all screen sizes. It also has a very dyanic This is the link to the web app: [Cryptoverse](https://cryptoversefront.herokuapp.com). Some notable features include:
+Cryptoverse is a web app I built as my final project for the course CS 484 - Secure Web Application Development instructed by prof. [Chris Fulton](https://www.linkedin.com/in/christopher-fulton-5a053a17). It displays information about the top 100 cryptocurrencies in a card layout. This is the link to the web app: [Cryptoverse](https://cryptoversefront.herokuapp.com). Some notable features include:
 
+- Built using a microservices-based architecture. Frontend and backend are hosted as two separate containers and they send information back and forth via RESTful APIs.
 - Dynamic and responsive to all screen sizes.
 - Search bar that filters content dynamically.
 - Sessions are sent back and forth between the frontend and backend. They are stashed in the database for a persistent store.
 - Forgot password page uses Nodemailer to send an OTP to verify the user.
-- Uses CI/CD pipeline built using Github Actions
-- Plots the price change in the last 24 hours on a graph
+- Uses CI/CD pipeline built using Github Actions.
+- Plots the price change in the last 24 hours on a graph.
 
 ### Github Actions - CI/CD Pipeline
 
