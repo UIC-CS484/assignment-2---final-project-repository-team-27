@@ -32,18 +32,22 @@ These are the primary technologies that were used to build this full-stack appli
 
 Html, CSS, Javascript, React.js, Node.js, Express.js, Jest.js, Knex.js, Sqlite3, Github Actions, Docker, Heroku, React Sparklines, React Tilt, Nodemailer, Bcrypt.js. 
 
+
+### API
+
+I use the coinranking API to obtain data about crypto. This is the link to the documentation:
+[https://developers.coinranking.com/api/documentation/coins](https://developers.coinranking.com/api/documentation/coins)
+
+This is the data I read in:
+- Name, logo of the Cryptocurrency
+- Price change in the last 24 hours
+
  ### User authentication & security
 
  For authentication, I am implementing secure storage of passwords through salting the hashes to add an element of randomness. I am also enforcing strong passwords by accepting only passwords that contain a lowercase, uppercase, number and a special character. The minimum length of the password is also 8 characters. <br/> <br/>
  For security, I have implemented a microservices-based architecture. My frontend manages all user interactions, and it contains no sensitive data at all. I have a backend server that contains all the sensitive data and communicates only what is required at any point in time to the frontend, which also manages to keep the frontend light and fast. <br/> <br/>
  I have used object relational mapping through a library called knex.js to prevent SQL injection attacks. My server also has a cors module that allows only my frontend to connect with it through a parameter called 'origin'. This implies no one else in the world can access my server at the url. The server will also sit in its own docker container, so essentially it'll be in a world of its own. <br/> <br/>
  I also a separate .env file where I store sensitive data. For the purpose of grading, I have uploaded that file as well, but ideally I will put that in gitignore and keep it safe and secure in my laptop.
-
-### API
-
-I use the coinranking API to obtain data about crypto. This is the link to the documentation:
-[https://developers.coinranking.com/api/documentation/coins](https://developers.coinranking.com/api/documentation/coins)  <br/>  <br/>
-![Interaction with RESTFul API](./backend/images/Interaction_with_REST_API.png)
 
 
 ### Challenges
