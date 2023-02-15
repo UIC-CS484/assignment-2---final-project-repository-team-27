@@ -1,6 +1,6 @@
 # Cryptoverse
 
-This is the link to the website: [Cryptoverse](cryptoversefront.herokuapp.com)
+This is the link to the website: [Cryptoverse](https://cryptoversefront.herokuapp.com)
 
  ### User authentication & security
 
