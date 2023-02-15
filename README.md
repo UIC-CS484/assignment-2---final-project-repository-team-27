@@ -1,10 +1,35 @@
 # Cryptoverse
 
-This is the link to the website: [Cryptoverse](https://cryptoversefront.herokuapp.com)
+### Introduction
 
-### Pipeline
+Cryptoverse is a web app I built as my final project for the course CS 484 - Secure Web Application Development instructed by prof. [Chris Fulton](https://www.linkedin.com/in/christopher-fulton-5a053a17). It displays information about the top 100 cryptocurrencies in a card layout. It is dynamic and responsive to all screen sizes. It also has a very dyanic This is the link to the web app: [Cryptoverse](https://cryptoversefront.herokuapp.com). Some notable features include:
 
-Pushes to the main branch on Github trigger a CI/CD pipeline that builds, containerizes and deploys the frontend and the backend separately on Heroku. I'm using Github Actions for this.
+- Dynamic and responsive to all screen sizes.
+- Search bar that filters content dynamically.
+- Sessions are sent back and forth between the frontend and backend. They are stashed in the database for a persistent store.
+- Forgot password page uses Nodemailer to send an OTP to verify the user.
+- Uses CI/CD pipeline built using Github Actions
+- Plots the price change in the last 24 hours on a graph
+
+### Github Actions - CI/CD Pipeline
+
+I use [Github Actions] (https://github.com/features/actions) for the CI/CD pipeline. The code for this can be found in the .github/workflows directory. Essentially, pushes to the main branch trigger the following 4 jobs:
+
+`build_back` - Installs and configures node, application dependancies. Builds, runs and tests the application to make sure everything is working as expected.
+
+`deploy_back` - Upon successful tests, this step logs in to Heroku, runs the Heroku commands needed to build a docker container using the Dockerfile in the backend directory and deploys it using my Heroku credentials that are stored as secrets in my repo.
+
+`build_front` - Installs and configures node, application dependancies. Builds, runs and tests the application to make sure everything is working as expected.
+
+`deploy_front` - Upon successful tests, this step logs in to Heroku, runs the Heroku commands needed to build a docker container using the Dockerfile in the frontend directory and deploys it using my Heroku credentials that are stored as secrets in my repo.
+
+A successful commit/build :heavy_check_mark: requires successful completion of these 4 jobs.
+
+### Technologies Used
+
+These are the primary technologies that were used to build this full-stack application:  <br/>
+
+Html, CSS, Javascript, React.js, Node.js, Express.js, Jest.js, Knex.js, Sqlite3, Github Actions, Docker, Heroku, React Sparklines, React Tilt, Nodemailer, Bcrypt.js. 
 
  ### User authentication & security
 
@@ -22,38 +47,11 @@ I use the coinranking API to obtain data about crypto. This is the link to the d
 
 ### Challenges
 
-Wow, where do I begin. Here is a small list: <br/>
 Sessions - it took me quite a while to figure out a way to communicate sessions between my frontend and backend. It got a ton harder after deploying it to heroku, since my websites went from http to https-based, so sessions stopped working. Also, Heroku uses something called a reverse proxy and that was getting in the way as well. <br/>
 This was definitely one of the hardest challenges as there was no help on the internet as well. I had to spend hours tweaking parameters of the session, cookie and finally found out that this worked: <br/>
 app.set ('trust proxy', 1) <br/>
 cookie: { sameSite: 'none', secure: true, httpOnly: true }
 
-### Tools and Resources
-
-These are the primary technologies that were used to build this full-stack application:  <br/>
-Html, CSS, Javascript <br/>
-React.js <br/>
-Node.js, Express.js <br/>
-Jest.js <br/>
-Knex.js <br/>
-Sqlite3 <br/>
-Github Actions for CI/CD <br/>
-Docker <br/>
-Heroku <br/>
-
-These are some additional libraries I used:  <br/>
-React Sparklines <br/>
-React Tilt <br/>
-Nodemailer <br/>
-Knex.js <br/>
-Bcrypt.js <br/>
-
-## Production mode
-
-Please note that the app has been deployed so it will not work in development mode as ports and urls in the .env file have been changed.
-Heroku has some weird sleep mode in the free plan, so it may take a while for the website to load. Please be patient.
-This is the url to the frontend - [https://cryptoversefront.herokuapp.com/](https://cryptoversefront.herokuapp.com/)
-This is the url to the backend - [https://cryptoverseback.herokuapp.com/](https://cryptoverseback.herokuapp.com/)
 
 ## Backend
 
