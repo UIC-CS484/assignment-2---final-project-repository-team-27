@@ -2,6 +2,10 @@
 
 This is the link to the website: [Cryptoverse](https://cryptoversefront.herokuapp.com)
 
+### Pipeline
+
+Pushes to the main branch on Github trigger a CI/CD pipeline that builds, containerizes and deploys the frontend and the backend separately on Heroku. I'm using Github Actions for this.
+
  ### User authentication & security
 
  For authentication, I am implementing secure storage of passwords through salting the hashes to add an element of randomness. I am also enforcing strong passwords by accepting only passwords that contain a lowercase, uppercase, number and a special character. The minimum length of the password is also 8 characters. <br/> <br/>
